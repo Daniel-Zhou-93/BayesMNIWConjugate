@@ -54,7 +54,7 @@ Authors
 
 | Name   | Email       |              |
 |:------ |:----------- | :----------- |
-| Yuzheng Dun (maintainer) | yuzhengdun1999@hust.edu.cn | Visiting student, Department of Biostatistics  UCLA|
+| Yuzheng Dun (maintainer) | yuzhengdun@hust.edu.cn | Visiting student, Department of Biostatistics  UCLA|
 | Sudipto Banerjee | sudipto@ucla.edu   | Professor, Department of Biostatistics  UCLA |
 <!--- --->
                              
