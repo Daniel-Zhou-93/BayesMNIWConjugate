@@ -5,7 +5,7 @@ BayesMNIWConjugate is a Java package providing methods for Bayesian Multivariate
 Build Instructions
 ------------------
 
-* Before compiling, you may have to go into the Makefile of JAMAJniGsl to change the extension of generated libraries based on your operating system. On OS X you have to change all the extensions of dynamic library to `.dylib` while on Linux the corresponding extensions are `.so`. Specific steps are described below.
+* Javac and gsl are required for compiling. Before compiling, you may have to go into the Makefile of JAMAJniGsl to change the extension of generated libraries based on your operating system. On OS X you have to change all the extensions of dynamic library to `.dylib` while on Linux the corresponding extensions are `.so`. Specific steps are described below.
 
 * For JAMAJniGsl, enter JAMAJniGsl/src directory and copy the makefile based on the operating system.
 

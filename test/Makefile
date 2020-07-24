@@ -13,5 +13,5 @@ $(TEST_RUN):
 
 clean: 
 	rm -f *.txt *.class *.out *.serial
-	rm -f $(JAVA_HOME)/data/X.txt
-	rm -f $(JAVA_HOME)/data/Y.txt
+	#rm -f $(JAVA_HOME)/data/X.txt
+	#rm -f $(JAVA_HOME)/data/Y.txt
