@@ -10,6 +10,8 @@ SUBPACKAGES_CLASS_PATH = $(JAVA_HOME)/class
 
 all: subpackage $(PACKAGE)
 
+.PHONY: subpackage
+
 subpackage:
 	@mkdir -p $(@D)
 	$(MAKE) -C ../JAMAJniGsl/src
