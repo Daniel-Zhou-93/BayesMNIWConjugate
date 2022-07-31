@@ -16,8 +16,11 @@ subpackage:
 
 $(PACKAGE): subpackage $(JAVA_SRC)
 	@mkdir -p $(@D)
+	ln -s ../JAMAJniGsl/class/JAMAJniGsl $(JAVA_HOME)/class/JAMAJniGsl
+	ln -s ../JAMAJniGsl/lib $(JAVA_HOME)/lib
 	$(JC) $(JFLAGS) $(JAVA_HOME)/class -classpath $(SUBPACKAGES_CLASS_PATH):. $(JAVA_SRC)
 
 clean: 
 	rm -fr $(JAVA_HOME)/class
 	rm -fr $(JAVA_HOME)/lib
+	rm $(JAVA_HOME)/JAMAJniGsl
