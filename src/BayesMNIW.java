@@ -17,7 +17,7 @@ public class BayesMNIW implements java.io.Serializable{
     int n,q,p;//nsam means the number of random samples to generate
     double[] sigma, iden, zero;
     //double[][] beta,temp;
-    Matrix X, Y, VL, Vrinv, Vs, Vsinv, Mub, Mus, Phi, Phis, SL, Beta, Iden;
+    Matrix X, Y, VL, Vrinv, Vs, Vsinv, Mub, Mus, Phi, Phis, Phisinv, SL, Beta, Iden;
     CholeskyDecomposition CholV,CholSi;
     final int matrix_layout = Matrix.LAYOUT.RowMajor;
     final int trans = Matrix.TRANSPOSE.Trans;
@@ -61,6 +61,7 @@ public class BayesMNIW implements java.io.Serializable{
 	Phis = Phis.plus(Mub.transpose().times(Vrinv.times(Mub)));
 	//System.out.println(" OK");
 	Phis = Phis.minus(Mus.transpose().times(Vsinv.times(Mus)));
+	Phisinv = Phis.inverse();
 	//System.out.println(" OK");
 	vs = v + (double)n;
         CholV = Vs.chol(); 
@@ -72,7 +73,10 @@ public class BayesMNIW implements java.io.Serializable{
     * ------------------------ */
     public Matrix getSigmaResult(){
 	//Phis = Phis.inverse();
-	double[] PhisArr = Phis.getRowPackedCopy();
+	CholeskyDecomposition CholPhiinv = Phisinv.chol();
+	Matrix PhiL = CholPhiinv.getL();
+//	double[] PhisArr = Phis.getRowPackedCopy();
+	double[] PhisArr = PhiL.getRowPackedCopy();
 	double[] result = new double[q * q];
 	JniGslRng.inverwishart(vs,q,PhisArr,result);
 	Matrix Result = new Matrix(result,q,q);

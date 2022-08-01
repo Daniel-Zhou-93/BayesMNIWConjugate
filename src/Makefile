@@ -12,12 +12,14 @@ all: subpackage $(PACKAGE)
 
 subpackage:
 	@mkdir -p $(@D)
-	$(MAKE) -C ../JAMAJniGsl/src
+	$(MAKE) -C $(JAVA_HOME)/../JamaJniGsl/src
 
 $(PACKAGE): subpackage $(JAVA_SRC)
+	pwd
 	@mkdir -p $(@D)
-	ln -s ../JAMAJniGsl/class/JAMAJniGsl $(JAVA_HOME)/class/JAMAJniGsl
-	ln -s ../JAMAJniGsl/lib $(JAVA_HOME)/lib
+	ln -s ../JamaJniGsl $(JAVA_HOME)/JAMAJniGsl
+	ln -s ../JamaJniGsl/class/JAMAJniGsl $(JAVA_HOME)/class/JAMAJniGsl
+	ln -s ../JamaJniGsl/lib $(JAVA_HOME)/lib
 	$(JC) $(JFLAGS) $(JAVA_HOME)/class -classpath $(SUBPACKAGES_CLASS_PATH):. $(JAVA_SRC)
 
 clean: 
